@@ -17,7 +17,15 @@ const protectRoute = async (req, res, next) => {
       return res.status(401).json({ error: "unautharized - Invalid provided" });
     }
 
-    const user = await User.findById(decoded.userId);
+    const user = await User.findById(decoded.userId).select("-password");
+
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    req.user = user;
+
+    next();
   } catch (error) {
     console.log("Error in protectRoute", error.message);
     res.status(500).json({ error: "Internal server error" });
