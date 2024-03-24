@@ -1,5 +1,13 @@
+import MessageContainer from "../../components/messages/MessageContainer";
+import Sidebar from "../../components/sidebar/Sidebar";
+
 const Home = () => {
-  return <div>HOME</div>;
+  return (
+    <div className="flex sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden justify-center bg-gray-50 bg-clip-padding p-2 ">
+      <Sidebar />
+      <MessageContainer />
+    </div>
+  );
 };
 
 export default Home;
