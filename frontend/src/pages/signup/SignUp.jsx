@@ -10,6 +10,8 @@ const SignUp = () => {
     confirmpassword: "",
     gender: "",
   });
+
+  // eslint-disable-next-line no-unused-vars
   const { loading, signup } = useSignup();
 
   const handleCheckboxCheck = (gender) => {
